@@ -14,14 +14,14 @@ namespace ForumWcfService
     {
         public string GetData(int value)
         {
-            return string.Format("You entered: {0}", value);
+            return $"You entered: {value}";
         }
 
         public CompositeType GetDataUsingDataContract(CompositeType composite)
         {
             if (composite == null)
             {
-                throw new ArgumentNullException("composite");
+                throw new ArgumentNullException(nameof(composite));
             }
             if (composite.BoolValue)
             {
