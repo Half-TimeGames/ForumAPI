@@ -8,13 +8,14 @@ using Entities;
 
 namespace Repositories
 {
+    //TODO FindUserByHash
     public class UserRepository
     {
         private readonly ForumContext _context;
 
-        public UserRepository()
+        public UserRepository(ForumContext context)
         {
-            _context = new ForumContext();
+            _context = context;
         }
 
         public User GetUser(int id)
