@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Net;
+using System.Runtime.Remoting.Contexts;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +12,7 @@ using Entities;
 
 namespace Repositories
 {
-    //TODO FindUserByHash
+    //TODO FindByHash
     public class UserRepository
     {
         private readonly ForumContext _context;
@@ -18,9 +22,9 @@ namespace Repositories
             _context = context;
         }
 
-        public User GetUser(int id)
+        public  User GetUser(int id)
         {
-            return _context.Users.SingleOrDefault(x => x.Id == id);
+            return  _context.Users.SingleOrDefault(x => x.Id == id);
         }
 
         public IEnumerable<User> GetAllUsers()
@@ -34,18 +38,37 @@ namespace Repositories
             _context.SaveChanges();
         }
 
-        public void EditUser(User user)
+        public bool EditUser(User user, int id)
         {
-            var u = _context.Users.Single(x => x.Id == user.Id);
-            DeleteUser(u);
-            AddUser(user);
-            _context.SaveChanges();
+            _context.Entry(user).State = EntityState.Modified;
+
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!UserExists(id))
+                {
+                    return false;
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return true;
         }
 
         public void DeleteUser(User user)
         {
             _context.Users.Remove(user);
             _context.SaveChanges();
+        }
+
+        private bool UserExists(int id)
+        {
+            return _context.Users.Count(e => e.Id == id) > 0;
         }
     }
 }

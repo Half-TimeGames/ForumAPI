@@ -8,9 +8,9 @@ namespace Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Required]
+        //[Required]
         public User SenderUser { get; set; }
-        [Required]
+        //[Required]
         public User ReceiverUser { get; set; }
         public string Text { get; set; }
     }

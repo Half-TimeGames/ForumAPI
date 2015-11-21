@@ -13,7 +13,7 @@ namespace Repositories
     {
         public ForumContext() : base("ForumDb")
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<ForumContext>());
+            Database.SetInitializer(new ForumInitializer<ForumContext>());
         }
 
         public DbSet<User> Users { get; set; }
