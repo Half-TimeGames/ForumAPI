@@ -5,22 +5,23 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Entities;
+using Repositories;
 
-namespace Repositories
+namespace BusinessLayer
 {
-    public class LoginRepository
+    public class LoginHandler
     {
-        private readonly ForumContext _context;
+        private readonly UserRepository _userRepository;
 
-        public LoginRepository(ForumContext forumContext)
+        public LoginHandler(ForumContext forumContext)
         {
-            _context = forumContext;
+            _userRepository = new UserRepository(forumContext);
         }
 
         public User Login(string email, string password)
         {
 
-            User currentUser = _context.Users.SingleOrDefault(x => x.Email == email);
+            User currentUser = _userRepository.FindUserByEmail(email);
 
             if (currentUser == null)
                 return null;
@@ -43,13 +44,13 @@ namespace Repositories
         public string RandomString(int length)
         {
             Random rand = new Random();
-            string String = "";
+            string randomString = "";
             for (int i = 0; i < length; i++)
             {
 
-                String += (char)rand.Next(65, 91);
+                randomString += (char)rand.Next(65, 91);
             }
-            return String;
+            return randomString;
         }
     }
 }

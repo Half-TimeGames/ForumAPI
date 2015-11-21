@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Description;
+using BusinessLayer;
 using Entities;
 using Repositories;
 
@@ -12,11 +13,14 @@ namespace ForumWebApi.Controllers
         private readonly ForumContext _context = new ForumContext();
         private readonly UserRepository _userRepository;
         private readonly LoginRepository _loginRepository;
+        private readonly LoginHandler _loginHandler;
         
 
         public UsersController()
         {
             _userRepository = new UserRepository(_context);
+            _loginRepository = new LoginRepository(_context);
+            _loginHandler = new LoginHandler(_context);
         }
 
         // GET: api/Users
@@ -65,8 +69,8 @@ namespace ForumWebApi.Controllers
                 return BadRequest(ModelState);
             }
             user.DateCreateed = DateTime.Now;
-            user.PasswordSalt = _loginRepository.RandomString(16);
-            user.PasswordHash = _loginRepository.getHash(password, user.PasswordSalt);
+            user.PasswordSalt = _loginHandler.RandomString(16);
+            user.PasswordHash = _loginHandler.GetHash(password, user.PasswordSalt);
 
             _userRepository.AddUser(user);
 

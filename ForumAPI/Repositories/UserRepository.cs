@@ -37,6 +37,11 @@ namespace Repositories
             return _context.Users.Single(x => x.PasswordHash == hash);
         }
 
+        public User FindUserByEmail(string email)
+        {
+            return _context.Users.Single(x => x.Email == email);
+        }
+
         public bool EditUser(User user, int id)
         {
             _context.Entry(user).State = EntityState.Modified;

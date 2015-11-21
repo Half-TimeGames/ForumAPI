@@ -121,6 +121,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{2e0e0624-f566-4c17-9ad5-df8ec235fa02}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{afd4a54c-2ad6-4bc8-8fee-b7704d4355b1}</Project>
       <Name>Entities</Name>
