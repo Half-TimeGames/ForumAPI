@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Net;
-using System.Runtime.Remoting.Contexts;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using Entities;
 
 namespace Repositories
@@ -38,6 +32,11 @@ namespace Repositories
             _context.SaveChanges();
         }
 
+        public User FindUserByHash(string hash)
+        {
+            return _context.Users.Single(x => x.PasswordHash == hash);
+        }
+
         public bool EditUser(User user, int id)
         {
             _context.Entry(user).State = EntityState.Modified;
@@ -52,10 +51,7 @@ namespace Repositories
                 {
                     return false;
                 }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
             return true;
         }

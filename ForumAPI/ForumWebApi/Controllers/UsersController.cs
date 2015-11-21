@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Runtime.Remoting.Contexts;
-using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Entities;
@@ -25,7 +18,7 @@ namespace ForumWebApi.Controllers
         }
 
         // GET: api/Users
-        public  IQueryable<User> GetUsers()
+        public IQueryable<User> GetUsers()
         {
             return _userRepository.GetAllUsers().AsQueryable();
         }
@@ -88,20 +81,6 @@ namespace ForumWebApi.Controllers
             _userRepository.DeleteUser(user);
 
             return Ok(user);
-        }
-
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing)
-        //    {
-        //        Context.Dispose();
-        //    }
-        //    base.Dispose(disposing);
-        //}
-
-        private bool UserExists(int id)
-        {
-            return _context.Users.Count(e => e.Id == id) > 0;
         }
     }
 }

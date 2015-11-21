@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json;
 
 namespace Entities
 {
@@ -13,6 +14,7 @@ namespace Entities
         public string Username { get; set; }
         public string Email { get; set; }
         public string PasswordHash { get; set; }
+        [JsonIgnore]
         public string PasswordSalt { get; set; }
         public DateTime DateCreateed { get; set; }
         public string Avatar { get; set; }

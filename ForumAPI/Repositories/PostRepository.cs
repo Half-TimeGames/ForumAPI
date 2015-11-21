@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,18 +34,34 @@ namespace Repositories
             _context.SaveChanges();
         }
 
-        public void EditPost(Post post)
+        public bool EditPost(Post post, int id)
         {
-            var p = _context.Posts.Single(x => x.Id == post.Id);
-            DeletePost(p);
-            AddPost(post);
-            _context.SaveChanges();
+            _context.Entry(post).State = EntityState.Modified;
+
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!PostExists(id))
+                {
+                    return false;
+                }
+                throw;
+            }
+            return true;
         }
 
         public void DeletePost(Post post)
         {
             _context.Posts.Remove(post);
             _context.SaveChanges();
+        }
+
+        private bool PostExists(int id)
+        {
+            return _context.Posts.Count(e => e.Id == id) > 0;
         }
     }
 }

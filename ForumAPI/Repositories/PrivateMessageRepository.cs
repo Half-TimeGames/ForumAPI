@@ -1,6 +1,8 @@
 ﻿using Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,18 +34,34 @@ namespace Repositories
             _context.SaveChanges();
         }
 
-        public void EditPrivateMessage(PrivateMessage privateMessage)
+        public bool EditPrivateMessage(PrivateMessage privateMessage, int id)
         {
-            var p = _context.PrivateMessages.Single(x => x.Id == privateMessage.Id);
-            DeletePrivateMessage(p);
-            AddPrivateMessage(privateMessage);
-            _context.SaveChanges();
+            _context.Entry(privateMessage).State = EntityState.Modified;
+
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!PrivateMessageExists(id))
+                {
+                    return false;
+                }
+                throw;
+            }
+            return true;
         }
 
         public void DeletePrivateMessage(PrivateMessage privateMessage)
         {
             _context.PrivateMessages.Remove(privateMessage);
             _context.SaveChanges();
+        }
+
+        private bool PrivateMessageExists(int id)
+        {
+            return _context.PrivateMessages.Count(e => e.Id == id) > 0;
         }
     }
 }

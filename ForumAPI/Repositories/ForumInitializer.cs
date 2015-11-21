@@ -74,13 +74,13 @@ namespace Repositories
                 defaultPosts[8]
             };
 
-            IList<Thread> defaulThreads = new List<Thread>();
+            IList<Thread> defaultThreads = new List<Thread>();
 
-            defaulThreads.Add(new Thread() {DateCreated = DateTime.Now, Posts = threadPosts1, Topic = defaulTopics[0], Subject="Lorem Ipsum Dolor Sit Amet!"});
-            defaulThreads.Add(new Thread() {DateCreated = DateTime.Now, Posts = threadPosts2, Topic = defaulTopics[1], Subject="Aliquam erat volutpat..."});
-            defaulThreads.Add(new Thread() {DateCreated = DateTime.Now, Posts = threadPosts3, Topic = defaulTopics[2], Subject="Lol! Faggits! This is so gay!"});
+            defaultThreads.Add(new Thread() {DateCreated = DateTime.Now, Posts = threadPosts1, Topic = defaulTopics[0], Subject="Lorem Ipsum Dolor Sit Amet!"});
+            defaultThreads.Add(new Thread() {DateCreated = DateTime.Now, Posts = threadPosts2, Topic = defaulTopics[1], Subject="Aliquam erat volutpat..."});
+            defaultThreads.Add(new Thread() {DateCreated = DateTime.Now, Posts = threadPosts3, Topic = defaulTopics[2], Subject="Lol! Faggits! This is so gay!"});
 
-            foreach (var defaulThread in defaulThreads)
+            foreach (var defaulThread in defaultThreads)
             {
                 context.Threads.Add(defaulThread);
             }
