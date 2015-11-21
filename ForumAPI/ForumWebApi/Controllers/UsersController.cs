@@ -18,6 +18,8 @@ namespace ForumWebApi.Controllers
     {
         private readonly ForumContext _context = new ForumContext();
         private readonly UserRepository _userRepository;
+        private readonly LoginRepository _loginRepository;
+        
 
         public UsersController()
         {
@@ -63,12 +65,15 @@ namespace ForumWebApi.Controllers
 
         // POST: api/Users
         [ResponseType(typeof(User))]
-        public IHttpActionResult PostUser(User user)
+        public IHttpActionResult PostUser(User user, string password)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+            user.DateCreateed = DateTime.Now;
+            user.PasswordSalt = _loginRepository.RandomString(16);
+            user.PasswordHash = _loginRepository.getHash(password, user.PasswordSalt);
 
             _userRepository.AddUser(user);
 
