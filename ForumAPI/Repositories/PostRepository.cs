@@ -13,9 +13,9 @@ namespace Repositories
     {
         private readonly ForumContext _context;
 
-        public PostRepository()
+        public PostRepository(ForumContext context)
         {
-            _context = new ForumContext();
+            _context = context;
         }
 
         public Post GetPost(int id)

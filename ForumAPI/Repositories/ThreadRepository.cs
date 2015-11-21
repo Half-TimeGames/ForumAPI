@@ -1,21 +1,24 @@
 ﻿using Entities;
 using System;
+using System.CodeDom;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Repositories
 {
-    class ThreadRepository
+    public class ThreadRepository
     {
         private readonly ForumContext _context;
 
-        public ThreadRepository()
+        public ThreadRepository(ForumContext context)
         {
-            _context = new ForumContext();
+            _context = context;
         }
 
         public Thread GetThread(int id)
@@ -34,10 +37,10 @@ namespace Repositories
             _context.SaveChanges();
         }
 
-        //public IEnumerable<Thread> GetThreadsByTopic(Topic topic)
-        //{
-        //    _context.Threads.
-        //} 
+        public IEnumerable<Thread> GetThreadsByTopic(Topic topic)
+        {
+            return _context.Threads.Where(thread => thread.Topic == topic).ToList();
+        } 
 
         public bool EditThread(Thread thread, int id)
         {
