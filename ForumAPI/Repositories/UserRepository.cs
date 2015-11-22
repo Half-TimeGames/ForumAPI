@@ -6,7 +6,6 @@ using Entities;
 
 namespace Repositories
 {
-    //TODO FindByHash
     public class UserRepository
     {
         private readonly ForumContext _context;

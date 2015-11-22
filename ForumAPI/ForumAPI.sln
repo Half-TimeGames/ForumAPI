@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForumWcfService", "ForumWcfService\ForumWcfService.csproj", "{01BF34EE-E6C9-4908-879B-FC0792045972}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{B9A86AD6-411C-43C9-A822-935E7905159F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{AFD4A54C-2AD6-4BC8-8FEE-B7704D4355B1}"
@@ -19,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{01BF34EE-E6C9-4908-879B-FC0792045972}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01BF34EE-E6C9-4908-879B-FC0792045972}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{01BF34EE-E6C9-4908-879B-FC0792045972}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{01BF34EE-E6C9-4908-879B-FC0792045972}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B9A86AD6-411C-43C9-A822-935E7905159F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B9A86AD6-411C-43C9-A822-935E7905159F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9A86AD6-411C-43C9-A822-935E7905159F}.Release|Any CPU.ActiveCfg = Release|Any CPU

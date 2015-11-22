@@ -51,7 +51,6 @@
   <ItemGroup>
     <Compile Include="ForumContext.cs" />
     <Compile Include="ForumInitializer.cs" />
-    <Compile Include="LoginRepository.cs" />
     <Compile Include="PostRepository.cs" />
     <Compile Include="PrivateMessageRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
