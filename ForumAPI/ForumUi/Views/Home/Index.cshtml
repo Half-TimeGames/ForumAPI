@@ -5,12 +5,19 @@
 
 <div class="jumbotron">
     <h1>ForumWebAPI</h1>
-    <p class="lead">Vi skippar nog denna jumbotron, men har den kvar för den ser söt ut.</p>
+    <p class="lead">Vi skippar nog denna jumbotron, men har den kvar för den ser söt ut just nu.</p>
 </div>
 
 <div class="row">
-    @foreach (var item in Model)
-    {
-        <p>@item.Id | @item.Email | @item.Username</p>
-    }
+    <div class="wrapper">
+        @foreach (var item in Model)
+        {
+            <div class="userOverview">
+                <div class="avatar-frame" style="display: inline-block">
+                    <img src="http://cuteimages.net/data/2014/10/cute-kittens-photo.jpg" alt="Avatar, typ" />
+                </div>
+                <p style="display: inline-block">@item.Id | @item.Email | @item.Username | @item.DateCreated</p>
+            </div>
+        }
+    </div>
 </div>
