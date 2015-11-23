@@ -66,7 +66,7 @@ namespace ForumWebApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            user.DateCreateed = DateTime.Now;
+            user.DateCreated = DateTime.Now;
             user.PasswordSalt = _loginHandler.RandomString(16);
             user.PasswordHash = _loginHandler.GetHash(password, user.PasswordSalt);
 

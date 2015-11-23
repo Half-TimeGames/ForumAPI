@@ -15,10 +15,10 @@ namespace Repositories
         {
             IList<User> defaultUsers = new List<User>();
 
-            defaultUsers.Add(new User() { Username = "User1", Email = "User1@contoso.com", DateCreateed = DateTime.Now });
-            defaultUsers.Add(new User() { Username = "User2", Email = "User2@contoso.com", DateCreateed = DateTime.Now });
-            defaultUsers.Add(new User() { Username = "User3", Email = "User3@contoso.com", DateCreateed = DateTime.Now });
-            defaultUsers.Add(new User() { Username = "User4", Email = "User4@contoso.com", DateCreateed = DateTime.Now });
+            defaultUsers.Add(new User() { Username = "User1", Email = "User1@contoso.com", DateCreated = DateTime.Now });
+            defaultUsers.Add(new User() { Username = "User2", Email = "User2@contoso.com", DateCreated = DateTime.Now });
+            defaultUsers.Add(new User() { Username = "User3", Email = "User3@contoso.com", DateCreated = DateTime.Now });
+            defaultUsers.Add(new User() { Username = "User4", Email = "User4@contoso.com", DateCreated = DateTime.Now });
 
             IList<Topic> defaultTopics = new List<Topic>();
 

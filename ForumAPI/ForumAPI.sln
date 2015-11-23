@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForumWebApi", "ForumWebApi\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{2E0E0624-F566-4C17-9AD5-DF8EC235FA02}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForumUi", "ForumUi\ForumUi.csproj", "{54C0B802-FBFE-4646-9B84-6D587A40EB98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2E0E0624-F566-4C17-9AD5-DF8EC235FA02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E0E0624-F566-4C17-9AD5-DF8EC235FA02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E0E0624-F566-4C17-9AD5-DF8EC235FA02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54C0B802-FBFE-4646-9B84-6D587A40EB98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54C0B802-FBFE-4646-9B84-6D587A40EB98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54C0B802-FBFE-4646-9B84-6D587A40EB98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54C0B802-FBFE-4646-9B84-6D587A40EB98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

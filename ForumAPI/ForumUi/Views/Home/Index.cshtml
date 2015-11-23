@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model List<ForumUi.Models.User>
+
+<div class="jumbotron">
+    <h1>ForumWebAPI</h1>
+    <p class="lead">Vi skippar nog denna jumbotron, men har den kvar för den ser söt ut.</p>
+</div>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <p>@item.Id | @item.Email | @item.Username</p>
+    }
+</div>

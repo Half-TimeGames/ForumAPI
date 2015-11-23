@@ -16,7 +16,7 @@ namespace Entities
         public string PasswordHash { get; set; }
         [JsonIgnore]
         public string PasswordSalt { get; set; }
-        public DateTime DateCreateed { get; set; }
+        public DateTime DateCreated { get; set; }
         public string Avatar { get; set; }
     }
 }
