@@ -17,15 +17,15 @@ namespace ForumUi.Controllers
         {
             //TODO: Add option to edit users
 
-            var client = new RestClient();
-            client.BaseUrl = new Uri("http://localhost:56513");
+            var client = new RestClient {BaseUrl = new Uri("http://localhost:56513")};
 
             //client.Authenticator = new HttpBasicAuthenticator("username", "password");
             //Det här är en grej twitter använder sig av som lät väldigt intressant, vet inte hur det fungerar,
             //men verkar som man ska kunna göra en authenticate för att använda sig av ett api.
-            
-            var request = new RestRequest();
-            request.Resource = "api/Users";
+
+            //Känns väl onödigt när bara vi använder API:t
+
+            var request = new RestRequest {Resource = "api/Users"};
 
             IRestResponse response = client.Execute(request);
             User[] userArray = JsonConvert.DeserializeObject<User[]>(response.Content);
