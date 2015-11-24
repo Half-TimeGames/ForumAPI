@@ -4,6 +4,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using BusinessLayer;
 using Entities;
+using Newtonsoft.Json;
 using Repositories;
 
 namespace ForumWebApi.Controllers
@@ -59,30 +60,31 @@ namespace ForumWebApi.Controllers
         }
 
         // POST: api/Users
-        [ResponseType(typeof(User))]
-        public IHttpActionResult PostUser(string json)
+        [HttpPost]
+        [ResponseType(typeof(void))]
+        public IHttpActionResult PostUser(string userString)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
+            
             try
             {
-
-                var user = new User
+                var user = JsonConvert.DeserializeObject<User>(userString);
+                var newUser = new User
                 {
-                    Username = userName,
-                    Email = email,
+                    Username = user.Username,
+                    Email = user.Email,
                     DateCreated = DateTime.Now,
-                    Avatar = avatar,
+                    Avatar = user.Avatar,
                     PasswordSalt = _loginHandler.RandomString(16)
                 };
-                user.PasswordHash = _loginHandler.GetHash(password, user.PasswordSalt);
+                newUser.PasswordHash = _loginHandler.GetHash(user.PasswordHash, user.PasswordSalt);
 
-                _userRepository.AddUser(user);
+                _userRepository.AddUser(newUser);
 
-                return CreatedAtRoute("DefaultApi", new {id = user.Id}, user);
+                return CreatedAtRoute("DefaultApi", new { id = newUser.Id }, newUser);
             }
             catch
             {

@@ -53,14 +53,15 @@ namespace ForumUi.Controllers
             if (ModelState.IsValid)
             {
                 var client = new RestClient { BaseUrl = new Uri("http://localhost:56513") };
-
                 var request = new RestRequest("api/Users/", Method.POST);
 
-               var json = JsonConvert.SerializeObject(user);
+                var json = JsonConvert.SerializeObject(user);
 
-                request.AddParameter("text/json", json, ParameterType.RequestBody);
+                request.AddParameter("application/json; charset=utf-8", json, ParameterType.RequestBody);
+                request.RequestFormat = DataFormat.Json;
+                
                 var response = client.Execute(request);
-
+                
 
                 return RedirectToAction("Index");
             }

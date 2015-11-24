@@ -18,7 +18,7 @@ namespace Repositories
         {
             IList<User> defaultUsers = new List<User>();
 
-            defaultUsers.Add(new User() { Username = "User1", Email = "User1@contoso.com", DateCreated = DateTime.Now, Avatar = "http://cuteimages.net/data/2014/10/cute-kittens-photo.jpg"});
+            defaultUsers.Add(new User() { Username = "User1", Email = "User1@contoso.com", DateCreated = DateTime.Now, Avatar = "http://cuteimages.net/data/2014/10/cute-kittens-photo.jpg" });
             defaultUsers.Add(new User() { Username = "User2", Email = "User2@contoso.com", DateCreated = DateTime.Now, Avatar = "http://cuteimages.net/data/2014/10/cute-kittens-photo.jpg" });
             defaultUsers.Add(new User() { Username = "User3", Email = "User3@contoso.com", DateCreated = DateTime.Now, Avatar = "http://cuteimages.net/data/2014/10/cute-kittens-photo.jpg" });
             defaultUsers.Add(new User() { Username = "User4", Email = "User4@contoso.com", DateCreated = DateTime.Now, Avatar = "http://cuteimages.net/data/2014/10/cute-kittens-photo.jpg" });

@@ -16,6 +16,13 @@ namespace ForumWebApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Routes.MapHttpRoute(
+                name: "GetHash",
+                routeTemplate: "api/{controller}/{action}/{emailPassword}",
+                defaults: null,
+                constraints: new { emailPassword = @"^[a-z]+$" }
+            );
         }
     }
 }
