@@ -18,10 +18,10 @@ namespace Repositories
         {
             IList<User> defaultUsers = new List<User>();
 
-            defaultUsers.Add(new User() { Username = "User1", Email = "User1@contoso.com", DateCreated = DateTime.Now });
-            defaultUsers.Add(new User() { Username = "User2", Email = "User2@contoso.com", DateCreated = DateTime.Now });
-            defaultUsers.Add(new User() { Username = "User3", Email = "User3@contoso.com", DateCreated = DateTime.Now });
-            defaultUsers.Add(new User() { Username = "User4", Email = "User4@contoso.com", DateCreated = DateTime.Now });
+            defaultUsers.Add(new User() { Username = "User1", Email = "User1@contoso.com", DateCreated = DateTime.Now, Avatar = "http://cuteimages.net/data/2014/10/cute-kittens-photo.jpg"});
+            defaultUsers.Add(new User() { Username = "User2", Email = "User2@contoso.com", DateCreated = DateTime.Now, Avatar = "http://cuteimages.net/data/2014/10/cute-kittens-photo.jpg" });
+            defaultUsers.Add(new User() { Username = "User3", Email = "User3@contoso.com", DateCreated = DateTime.Now, Avatar = "http://cuteimages.net/data/2014/10/cute-kittens-photo.jpg" });
+            defaultUsers.Add(new User() { Username = "User4", Email = "User4@contoso.com", DateCreated = DateTime.Now, Avatar = "http://cuteimages.net/data/2014/10/cute-kittens-photo.jpg" });
 
             IList<Topic> defaultTopics = new List<Topic>();
 
@@ -31,7 +31,7 @@ namespace Repositories
 
             IList<Post> defaultPosts = new List<Post>();
 
-            defaultPosts.Add(new Post() { User = defaultUsers[0], DateCreated = DateTime.Now, Text = LoremIpsum(50000) });
+            defaultPosts.Add(new Post() { User = defaultUsers[0], DateCreated = DateTime.Now, Text = LoremIpsum(49000) });
             defaultPosts.Add(new Post() { User = defaultUsers[2], DateCreated = DateTime.Now, Text = LoremIpsum(100) });
             defaultPosts.Add(new Post() { User = defaultUsers[0], DateCreated = DateTime.Now, Text = LoremIpsum(3000) });
             defaultPosts.Add(new Post() { User = defaultUsers[1], DateCreated = DateTime.Now, Text = LoremIpsum(400) });

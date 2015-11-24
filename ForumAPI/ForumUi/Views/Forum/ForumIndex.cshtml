@@ -7,10 +7,16 @@
 
 <div class="row">
     <div class="wrapper">
-        @foreach (var item in Model)
+        @foreach (var threadItem in Model)
         {
             <div class="threadOverview">
-                <p>@item.Subject | @item.DateCreated @item.</p>
+                <p>@threadItem.Subject | @threadItem.DateCreated</p>
+                @foreach (var postItem in threadItem.Posts)
+                {
+                    <div>
+                        @postItem.Text
+                    </div>
+                }
             </div>
         }
     </div>

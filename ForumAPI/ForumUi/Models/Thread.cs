@@ -10,7 +10,7 @@ namespace ForumUi.Models
         public int Id { get; set; }
         public object Topic { get; set; }
         public string Subject { get; set; }
-        public object Posts { get; set; }
+        public ICollection<Post> Posts { get; set; }
         public string DateCreated { get; set; }
     }
 }

@@ -17,8 +17,7 @@ namespace ForumUi.Controllers
         {
             var client = new RestClient();
             client.BaseUrl = new Uri("http://localhost:56513");
-            var request = new RestRequest();
-            request.Resource = "api/Threads";
+            var request = new RestRequest {Resource = "api/Threads"};
             IRestResponse response = client.Execute(request);
             Thread[] threadsArray = JsonConvert.DeserializeObject<Thread[]>(response.Content);
 
