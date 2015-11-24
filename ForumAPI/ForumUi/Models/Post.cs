@@ -8,7 +8,7 @@ namespace ForumUi.Models
     public class Post
     {
         public int Id { get; set; }
-        public object User { get; set; }
+        public User User { get; set; }
         public string Text { get; set; }
         public string DateCreated { get; set; }
     }

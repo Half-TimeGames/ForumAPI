@@ -1,0 +1,25 @@
+﻿@model IEnumerable<ForumUi.Models.Topic>
+
+@{
+    ViewBag.Title = "Topics";
+}
+
+<h2>TopicIndex</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink((item.Name), "Index", "Thread", new {id=item.Id}, null)
+        </td>
+    </tr>
+}
+
+</table>

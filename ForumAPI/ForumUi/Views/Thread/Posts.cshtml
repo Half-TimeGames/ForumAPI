@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ForumUi.Models.Post>
+
+@{
+    ViewBag.Title = "Posts";
+}
+
+<h2>Posts</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink((item.User.Username), "Details", "User", new {id = item.User.Id}, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+        </tr>
+    }
+
+</table>
+<p>
+    @Html.ActionLink("Reply", "Create")
+</p>

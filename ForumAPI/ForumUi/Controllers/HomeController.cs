@@ -28,9 +28,9 @@ namespace ForumUi.Controllers
             var request = new RestRequest {Resource = "api/Users"};
 
             IRestResponse response = client.Execute(request);
-            object userArray = JsonConvert.DeserializeObject<List<User>>(response.Content);
+            var userList = JsonConvert.DeserializeObject<List<User>>(response.Content);
             //var userList = userArray.ToList(); //Behövs säkert inte
-            return View(userArray);
+            return View(userList);
         }
 
         public ActionResult About()

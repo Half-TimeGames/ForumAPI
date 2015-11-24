@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using Entities;
 
 namespace Repositories

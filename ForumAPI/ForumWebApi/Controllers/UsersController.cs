@@ -13,7 +13,7 @@ namespace ForumWebApi.Controllers
         private readonly ForumContext _context = new ForumContext();
         private readonly UserRepository _userRepository;
         private readonly LoginHandler _loginHandler;
-        
+
 
         public UsersController()
         {
@@ -60,19 +60,35 @@ namespace ForumWebApi.Controllers
 
         // POST: api/Users
         [ResponseType(typeof(User))]
-        public IHttpActionResult PostUser(User user, string password)
+        public IHttpActionResult PostUser(string json)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            user.DateCreated = DateTime.Now;
-            user.PasswordSalt = _loginHandler.RandomString(16);
-            user.PasswordHash = _loginHandler.GetHash(password, user.PasswordSalt);
 
-            _userRepository.AddUser(user);
+            try
+            {
 
-            return CreatedAtRoute("DefaultApi", new { id = user.Id }, user);
+                var user = new User
+                {
+                    Username = userName,
+                    Email = email,
+                    DateCreated = DateTime.Now,
+                    Avatar = avatar,
+                    PasswordSalt = _loginHandler.RandomString(16)
+                };
+                user.PasswordHash = _loginHandler.GetHash(password, user.PasswordSalt);
+
+                _userRepository.AddUser(user);
+
+                return CreatedAtRoute("DefaultApi", new {id = user.Id}, user);
+            }
+            catch
+            {
+                // ignored
+                return InternalServerError();
+            }
         }
 
         // DELETE: api/Users/5

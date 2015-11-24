@@ -10,10 +10,10 @@ namespace Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public Topic Topic { get; set; }
+        public virtual Topic Topic { get; set; }
         [Required]
         public string Subject { get; set; }
-        public ICollection<Post> Posts { get; set; } 
+        public virtual ICollection<Post> Posts { get; set; } 
         public DateTime DateCreated { get; set; }
     }
 }
