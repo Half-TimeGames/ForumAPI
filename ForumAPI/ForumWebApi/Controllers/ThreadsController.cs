@@ -57,7 +57,7 @@ namespace ForumWebApi.Controllers
 
         // POST: api/Threads
         [ResponseType(typeof(Thread))]
-        public IHttpActionResult PostThread(Thread thread, string password)
+        public IHttpActionResult PostThread(Thread thread)
         {
             if (!ModelState.IsValid)
             {

@@ -90,7 +90,7 @@ namespace Repositories
         {
             var stringBuilder = new StringBuilder();
             var buffer = new char[length];
-            using (var streamReader = new StreamReader("TextFiles/Lorem50k.txt"))
+            using (var streamReader = new StreamReader("TextFiles/LoremIpsum.txt"))
             {
                 streamReader.Read(buffer, 0, length);
                 return stringBuilder.Append(buffer, 0, length).ToString();

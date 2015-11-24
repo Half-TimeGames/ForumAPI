@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "ForumIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model ForumUi.Models.Thread[]
+
+<div class="row">
+    <div class="wrapper">
+        @foreach (var item in Model)
+        {
+            <div class="threadOverview">
+                <p>@item.Subject | @item.DateCreated @item.</p>
+            </div>
+        }
+    </div>
+</div>
+
