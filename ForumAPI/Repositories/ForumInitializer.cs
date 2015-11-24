@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.IO;
+using System.Net;
+using System.Net.Http;
+using System.Net.Security;
 using System.Text;
 using Entities;
 
@@ -59,9 +62,27 @@ namespace Repositories
 
             IList<Thread> defaultThreads = new List<Thread>();
 
-            defaultThreads.Add(new Thread() {DateCreated = DateTime.Now, Posts = threadPosts1, Topic = defaultTopics[0], Subject="Lorem Ipsum Dolor Sit Amet!"});
-            defaultThreads.Add(new Thread() {DateCreated = DateTime.Now, Posts = threadPosts2, Topic = defaultTopics[1], Subject="Aliquam erat volutpat..."});
-            defaultThreads.Add(new Thread() {DateCreated = DateTime.Now, Posts = threadPosts3, Topic = defaultTopics[2], Subject="Lol! Faggits! This is so gay!"});
+            defaultThreads.Add(new Thread()
+            {
+                DateCreated = DateTime.Now,
+                Posts = threadPosts1,
+                Topic = defaultTopics[0],
+                Subject = "Lorem Ipsum Dolor Sit Amet!"
+            });
+            defaultThreads.Add(new Thread()
+            {
+                DateCreated = DateTime.Now,
+                Posts = threadPosts2,
+                Topic = defaultTopics[1],
+                Subject = "Aliquam erat volutpat..."
+            });
+            defaultThreads.Add(new Thread()
+            {
+                DateCreated = DateTime.Now,
+                Posts = threadPosts3,
+                Topic = defaultTopics[2],
+                Subject = "Lol! Faggits! This is so gay!"
+            });
 
             foreach (var defaultUser in defaultUsers)
             {
@@ -88,6 +109,8 @@ namespace Repositories
 
         private static string LoremIpsum(int length)
         {
+            //WebClient client = new WebClient();
+            //client.DownloadFile("https://www.dropbox.com/s/ahy1ojo2ni2rgyw/LoremIpsum.txt", @"C:\Program Files (x86)\IIS Express\LoremIpsum.txt");
             var stringBuilder = new StringBuilder();
             var buffer = new char[length];
             using (var streamReader = new StreamReader("TextFiles/LoremIpsum.txt"))
@@ -96,5 +119,7 @@ namespace Repositories
                 return stringBuilder.Append(buffer, 0, length).ToString();
             }
         }
+
     }
+
 }
